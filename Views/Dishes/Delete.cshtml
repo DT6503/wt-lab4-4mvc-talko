@@ -1,0 +1,20 @@
+﻿@model wt_lab4_4mvc_talko.Models.Dish
+@{
+    ViewData["Title"] = "Удалить блюдо";
+}
+
+<div class="container mt-4">
+    <div class="card shadow rounded border-danger">
+        <div class="card-header bg-danger text-white">
+            <h3 class="mb-0">🗑️ Удалить блюдо</h3>
+        </div>
+        <div class="card-body">
+            <p>Вы уверены, что хотите удалить <strong>@Model.Name</strong>?</p>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">Удалить</button>
+                <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+            </form>
+        </div>
+    </div>
+</div>

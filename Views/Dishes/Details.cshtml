@@ -1,0 +1,34 @@
+﻿@model wt_lab4_4mvc_talko.Models.Dish
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container mt-4">
+    <div class="card shadow rounded">
+        <div class="row g-0">
+            <div class="col-md-5">
+                <img src="@Model.ImageUrl" class="img-fluid rounded-start" alt="@Model.Name">
+            </div>
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h2 class="card-title">@Model.Name</h2>
+                    <p class="text-muted">@Model.Description</p>
+                    <p><span class="badge bg-secondary">@Model.Category</span></p>
+                    <p class="fs-4"><strong>@Model.Price руб.</strong></p>
+                    <p>
+                        Статус:
+                        @if (Model.IsAvailable)
+                        {
+                            <span class="badge bg-success">Доступно</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Нет в наличии</span>
+                        }
+                    </p>
+                    <a asp-action="Index" class="btn btn-secondary">← Назад к каталогу</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

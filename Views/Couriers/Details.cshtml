@@ -1,0 +1,44 @@
+﻿@model wt_lab4_4mvc_talko.Models.Courier
+@{
+    ViewData["Title"] = Model.FullName;
+}
+
+<div class="container mt-4">
+    <div class="card shadow rounded">
+        <div class="row g-0">
+            <div class="col-md-4 text-center p-4">
+                <img src="@Model.ImageUrl"
+                     alt="@Model.FullName"
+                     class="rounded-circle"
+                     style="width: 220px; height: 220px; object-fit: cover; border: 4px solid #d4c5a9;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">@Model.FullName</h2>
+
+                    <p>
+                        <span class="badge bg-secondary">⭐ @Model.Rating</span>
+                        <span class="badge bg-success">@Model.DeliveriesCount доставок</span>
+                    </p>
+
+                    <p><strong>🚗 Транспорт:</strong> @Model.Vehicle</p>
+                    <p>
+                        <strong>📞 Телефон:</strong>
+                        <a href="tel:@Model.Phone.Replace(" ", "").Replace("(", "").Replace(")", "").Replace("-", "")">
+                            @Model.Phone
+                        </a>
+                    </p>
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Description))
+                    {
+                        <p class="text-muted fst-italic">«@Model.Description»</p>
+                    }
+
+                    <div class="mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">← Назад к курьерам</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
